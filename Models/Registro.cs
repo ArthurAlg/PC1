@@ -17,6 +17,7 @@ namespace PC1.Models
         public decimal CostoInscripcion { get; private set; }
         public decimal Impuesto { get; private set; }
         public decimal TotalAPagar { get; private set; }
+        public bool EstaDeAcuerdo { get; set; }
 
 
         public void CalcularCostoEImpuesto(){

@@ -45,8 +45,15 @@
     <input type="checkbox" id="generoO" name="genero" value="Otro">
     <label for="generoO">Otro</label>
 
-        <label for="temporadas">Temporadas a jugar (máximo 4):</label>
-        <input type="number" id="temporadas" name="Temporadas" min="1" max="4" required>
+    <label for="temporadas">Temporadas a jugar (máximo 4):</label>
+    <input type="number" id="temporadas" name="Temporadas" min="1" max="4" required>
+
+    <label>¿Está de acuerdo?</label>
+    <input type="radio" id="siEstaDeAcuerdo" name="EstaDeAcuerdo" value="true">
+    <label for="siEstaDeAcuerdo">Sí</label>
+
+    <input type="radio" id="noEstaDeAcuerdo" name="EstaDeAcuerdo" value="false">
+    <label for="noEstaDeAcuerdo">No</label>
     
     <button type="submit">Registrar</button>
 </form>
@@ -58,6 +65,8 @@
     <p>Equipo: @Model.Equipo</p>
     <p>División: @Model.Division</p>
     <p>Género: @Model.Genero</p>
+    <h3>¿Está de acuerdo?</h3>
+    <p>@(Model.EstaDeAcuerdo ? "Sí" : "No")</p>
     @if (Model.Temporadas <= 4)
     {
         <h3>Costo de Inscripción:</h3>
