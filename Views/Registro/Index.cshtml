@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PC1</title>
+    <link rel="stylesheet" href="~/css/Formulario.css" asp-append-version="true" />
+</head>
+<body>
+
+<form asp-action="Registrar" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+  
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad" required>
+    
+    <label for="equipo">Equipo:</label>
+    <select id="equipo" name="equipo">
+        <option value="Universitario">Universitario</option>
+        <option value="Alianza Lima">Alianza Lima</option>
+        <option value="Cienciano">Cienciano</option>
+        <option value="Municipal">Municipal</option>
+        <option value="Cienciano">Cienciano</option>
+        <option value="Sport Boys">Sport Boys</option>
+    </select>
+    
+    <label>División:</label>
+    <input type="radio" id="division1" name="division" value="Sub17">
+    <label for="divisionA">Sub 17</label>
+    
+    <input type="radio" id="division2" name="division" value="Sub20">
+    <label for="divisionB">Sub 20</label>
+
+    <input type="radio" id="division3" name="division" value="Mayores">
+    <label for="divisionB">Mayores</label>
+    
+    <label>Género:</label>
+    <input type="checkbox" id="generoM" name="genero" value="Masculino">
+    <label for="generoM">Masculino</label>
+  
+    <input type="checkbox" id="generoF" name="genero" value="Femenino">
+    <label for="generoF">Femenino</label>
+
+    <input type="checkbox" id="generoO" name="genero" value="Otro">
+    <label for="generoO">Otro</label>
+
+        <label for="temporadas">Temporadas a jugar (máximo 4):</label>
+        <input type="number" id="temporadas" name="Temporadas" min="1" max="4" required>
+    
+    <button type="submit">Registrar</button>
+</form>
+
+@if (Model != null){
+    <h2>Información Registrada</h2>
+    <p>Nombre: @Model.Nombre</p>
+    <p>Edad: @Model.Edad</p>
+    <p>Equipo: @Model.Equipo</p>
+    <p>División: @Model.Division</p>
+    <p>Género: @Model.Genero</p>
+    @if (Model.Temporadas <= 4)
+    {
+        <h3>Costo de Inscripción:</h3>
+        <p>Cantidad de Temporadas: @Model.Temporadas</p>
+        <p>Costo de Inscripción: S/. @Model.CostoInscripcion</p>
+        <p>Impuesto (19%): S/. @Model.Impuesto</p>
+        <p>Total a Pagar: S/. @Model.TotalAPagar</p>
+    }
+    else
+    {
+        <p>El jugador no puede inscribirse por más de 4 temporadas.</p>
+    }
+}
+</body>
+</html>
